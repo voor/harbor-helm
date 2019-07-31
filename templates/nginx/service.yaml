@@ -5,6 +5,7 @@ metadata:
 {{- if eq .Values.expose.type "clusterIP" }}
 {{- $clusterIP := .Values.expose.clusterIP }}
   name: {{ $clusterIP.name }}
+  
   labels:
 {{ include "harbor.labels" . | indent 4 }}
 spec:
@@ -58,15 +59,10 @@ spec:
   name: {{ $loadBalancer.name }}
   labels:
 {{ include "harbor.labels" . | indent 4 }}
-{{- with $loadBalancer.annotations }}
-  annotations:
-  {{- toYaml . | nindent 4 }}
-{{- end }}
 spec:
   type: LoadBalancer
-  {{- with $loadBalancer.sourceRanges }}
-  loadBalancerSourceRanges:
-    {{- toYaml . | nindent 4 }}
+  {{- if $loadBalancer.IP }}
+  loadBalancerIP: {{ $loadBalancer.IP }}
   {{- end }}
   ports:
     - name: http

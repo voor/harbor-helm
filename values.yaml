@@ -71,6 +71,8 @@ expose:
   loadBalancer:
     # The name of LoadBalancer service
     name: harbor
+    # Set the IP if the LoadBalancer supports assigning IP
+    IP: ""
     ports:
       # The service port Harbor listens on when serving with HTTP
       httpPort: 80
@@ -254,7 +256,7 @@ nginx:
   psp: true
   image:
     repository: goharbor/nginx-photon
-    tag: dev
+    tag: v1.8.2-dev
   replicas: 1
   # resources:
   #  requests:
@@ -274,7 +276,7 @@ portal:
   psp: true
   image:
     repository: goharbor/harbor-portal
-    tag: dev
+    tag: v1.8.2-dev
   replicas: 1
   # resources:
   #  requests:
@@ -294,7 +296,7 @@ core:
   psp: true
   image:
     repository: goharbor/harbor-core
-    tag: dev
+    tag: v1.8.2-dev
   replicas: 1
   # resources:
   #  requests:
@@ -325,7 +327,7 @@ jobservice:
   psp: true
   image:
     repository: goharbor/harbor-jobservice
-    tag: dev
+    tag: v1.8.2-dev
   replicas: 1
   maxJobWorkers: 10
   # The logger for jobs: "file", "database" or "stdout"
@@ -353,7 +355,7 @@ registry:
   registry:
     image:
       repository: goharbor/registry-photon
-      tag: dev
+      tag: v1.8.2-dev
     # resources:
     #  requests:
     #    memory: 256Mi
@@ -361,7 +363,7 @@ registry:
   controller:
     image:
       repository: goharbor/harbor-registryctl
-      tag: dev
+      tag: v1.8.2-dev
     # resources:
     #  requests:
     #    memory: 256Mi
@@ -390,7 +392,7 @@ chartmuseum:
   psp: true
   image:
     repository: goharbor/chartmuseum-photon
-    tag: dev
+    tag: v1.8.2-dev
   replicas: 1
   # resources:
   #  requests:
@@ -411,7 +413,7 @@ clair:
   psp: true
   image:
     repository: goharbor/clair-photon
-    tag: dev
+    tag: v1.8.2-dev
   replicas: 1
   # The http(s) proxy used to update vulnerabilities database from internet
   httpProxy:
@@ -439,7 +441,7 @@ notary:
   server:
     image:
       repository: goharbor/notary-server-photon
-      tag: dev
+      tag: v1.8.2-dev
     replicas: 1
     # resources:
     #  requests:
@@ -448,7 +450,7 @@ notary:
   signer:
     image:
       repository: goharbor/notary-signer-photon
-      tag: dev
+      tag: v1.8.2-dev
     replicas: 1
     # resources:
     #  requests:
@@ -479,7 +481,7 @@ database:
     psp: true
     image:
       repository: goharbor/harbor-db
-      tag: dev
+      tag: v1.8.2-dev
     # The initial superuser password for internal database
     password: "changeit"
     # resources:
@@ -514,7 +516,7 @@ redis:
     psp: true
     image:
       repository: goharbor/redis-photon
-      tag: dev
+      tag: v1.8.2-dev
     # resources:
     #  requests:
     #    memory: 256Mi
