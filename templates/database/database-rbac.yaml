@@ -1,3 +1,4 @@
+{{- if eq .Values.database.type "internal" -}}
 {{- if .Values.database.internal.serviceAccount.create -}}
 {{- if .Values.database.internal.rbac -}}
 {{ if .Values.database.internal.psp -}}
@@ -42,5 +43,6 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: {{ printf "%s-database-cr" (include "harbor.fullname" .) | quote}}
+{{- end -}}
 {{- end -}}
 {{- end -}}

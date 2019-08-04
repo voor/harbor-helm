@@ -1,3 +1,4 @@
+{{- if ne .Values.expose.type "ingress" }}
 {{- if .Values.nginx.serviceAccount.create -}}
 {{- if .Values.nginx.rbac -}}
 {{ if .Values.nginx.psp -}}
@@ -42,5 +43,6 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: {{ printf "%s-nginx-cr" (include "harbor.fullname" .) | quote}}
+{{- end -}}
 {{- end -}}
 {{- end -}}

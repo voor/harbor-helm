@@ -1,3 +1,4 @@
+{{- if eq .Values.database.type "internal" -}}
 {{- if or .Values.database.internal.serviceAccount.create -}}
 apiVersion: v1
 kind: ServiceAccount
@@ -8,4 +9,5 @@ metadata:
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
   name: {{ template "harbor.database-serviceAccountName" . }}
+{{- end -}}
 {{- end -}}
