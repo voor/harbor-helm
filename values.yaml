@@ -252,6 +252,7 @@ nginx:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   image:
@@ -272,6 +273,7 @@ portal:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   image:
@@ -292,6 +294,7 @@ core:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   image:
@@ -323,6 +326,7 @@ jobservice:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   image:
@@ -350,6 +354,7 @@ registry:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   registry:
@@ -388,6 +393,7 @@ chartmuseum:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   image:
@@ -409,6 +415,7 @@ clair:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   image:
@@ -436,6 +443,7 @@ notary:
   serviceAccount:
     create: true
     name: ""
+    annotations: {}
   rbac: true
   psp: true
   server:
@@ -477,6 +485,7 @@ database:
     serviceAccount:
       create: true
       name: ""
+      annotations: {}
     rbac: true
     psp: true
     image:
@@ -512,6 +521,7 @@ redis:
     serviceAccount:
       create: true
       name: ""
+      annotations: {}
     rbac: true
     psp: true
     image:

@@ -2,6 +2,9 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
+  {{- if .Values.core.serviceAccount.annotations }}
+  annotations: {{ toYaml .Values.core.serviceAccount.annotations | nindent 4 }}
+  {{- end }}
   labels:
     app: {{ template "harbor.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
