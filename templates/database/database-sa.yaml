@@ -3,8 +3,8 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  {{- if .Values.database.serviceAccount.annotations }}
-  annotations: {{ toYaml .Values.database.serviceAccount.annotations | nindent 4 }}
+  {{- if .Values.database.internal.serviceAccount.annotations }}
+  annotations: {{ toYaml .Values.database.internal.serviceAccount.annotations | nindent 4 }}
   {{- end }}
   labels:
     app: {{ template "harbor.name" . }}
