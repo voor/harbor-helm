@@ -584,5 +584,4 @@ psp:
     - "*"
 
 # Security Context, defines the user to run as who should be the owner of the necessary directories.
-securityContext:
-  privileged: true
+securityContext: {}
